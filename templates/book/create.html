@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>{{title}}</h2>
+    <table>
+        <form action="{% url 'book_create' %}" method="post">
+            {% csrf_token %}
+            {{form}}
+            <tr><th></th><td><input type="submit" value="クリック"></td></tr>
+        </form>
+    </table>
+{% endblock %}
