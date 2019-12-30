@@ -1,8 +1,5 @@
 import os
-try:
-    from . import local_s
-except ImportError:
-    pass
+from .local_s import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
