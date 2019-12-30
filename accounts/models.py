@@ -6,4 +6,4 @@ class CustomUser(AbstractUser):
     class Meta:
         db_table = 'custom_user'
 
-    email = forms.EmailField(verbose_name='メールアドレス', required=True)
+    email = models.EmailField(verbose_name='メールアドレス')
