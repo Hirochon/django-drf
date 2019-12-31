@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from .models import Book
 from .serializers import BookSerializer
 
-class BookCreateAPIView(views.APIView):
+class BookListCreateAPIView(views.APIView):
     """本モデルの取得(一覧)・登録APIクラス"""
 
     def get(self, request, *args, **kwargs):
@@ -33,7 +33,7 @@ class BookCreateAPIView(views.APIView):
 class BookRetrieveUpdateDestroyAPIView(views.APIView):
     """本モデルの取得(詳細)・更新・一部更新・削除APIクラス"""
 
-    def get(self, request, pk, *args, *kwargs):
+    def get(self, request, pk, *args, **kwargs):
         """本モデルの取得(詳細)APIに対応するハンドラメソッド"""
 
         # モデルオブジェクトを取得

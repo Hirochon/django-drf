@@ -6,7 +6,7 @@ class Book(models.Model):
     """本モデル"""
 
     class Meta:
-        db_table = 'book'
+        db_table = 'bookapi'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(verbose_name='タイトル', max_length=20)
