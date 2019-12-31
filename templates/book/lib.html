@@ -9,4 +9,5 @@
             <p>{{book.title}} | {{book.price}}円</p>
         {% endfor %}
     </table>
+    <p><a href="{% url 'book_create' %}">ブック作成ページへ</a></p>
 {% endblock %}
