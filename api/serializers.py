@@ -23,7 +23,7 @@ class BookSerializer(serializers.ModelSerializer):
             'title' : {
                 'validators' : [
                     RegexValidator(
-                        r'^D.+$', message="タイトルは「D」で始めてください。"
+                        r'^貧.+$', message="タイトルは「貧」で始めてください。"
                     ),
                 ],
             },
@@ -31,16 +31,18 @@ class BookSerializer(serializers.ModelSerializer):
 
     def validate_title(self, value):
         """タイトルに対するバリデーションメソッド"""
-        if 'Java' in value:
-            raise serializers.ValidationError("タイトルには「Java」を含めないでください。")
+        if not '齋藤飛鳥' in value:
+            raise serializers.ValidationError("必ず「齋藤飛鳥」を含めてください。")
+        elif '貧乳' in value:
+            raise serializers.ValidationError("握手会が出禁になるので、「貧乳」を含めないでください。")
         return value
 
     def validate(self, data):
         """複数のバリデーションメソッド"""
         title = data.get('title')
         price = data.get('price')
-        if title and '薄い本' in title and price and price > 3000:
-            raise serializers.ValidationError("薄い本は3,000円を超えてはいけません。")
+        if title and '齋藤飛鳥' in title and price and price <= 50000:
+            raise serializers.ValidationError("齋藤飛鳥を含めた本はは50,000円以上でなければいけません。")
         return data
 
 class BookListSerializer(serializers.ListSerializer):
