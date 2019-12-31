@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'rest_framework',
     'book',
+    'api',
 ]
 
 MIDDLEWARE = [
