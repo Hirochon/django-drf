@@ -9,3 +9,9 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         # 利用しないモデルのフィールドを指定
         exclude = ['created_at']
+
+class BookListSerializer(serializers.ListSerializer):
+    """複数の本モデルを扱うためのシリアライザ"""
+
+    # 対象のシリアライザを指定
+    child = BookSerializer()
