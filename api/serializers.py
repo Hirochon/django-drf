@@ -21,12 +21,20 @@ class BookSerializer(serializers.ModelSerializer):
         ]
         extra_kwargs = {
             'title' : {
+                'error_messages':{
+                    'blank':"タイトルは必須です。",
+                },
                 'validators' : [
                     RegexValidator(
                         r'^貧.+$', message="タイトルは「貧」で始めてください。"
                     ),
                 ],
             },
+            'price':{
+                'error_messages':{
+                    'invalid':"価格には整数の値を入力してください。"
+                }
+            }
         }
 
     def validate_title(self, value):
