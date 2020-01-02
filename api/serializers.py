@@ -50,7 +50,7 @@ class BookSerializer(serializers.ModelSerializer):
         title = data.get('title')
         price = data.get('price')
         if title and '齋藤飛鳥' in title and price and price <= 50000:
-            raise serializers.ValidationError("齋藤飛鳥を含めた本はは50,000円以上でなければいけません。")
+            raise serializers.ValidationError("齋藤飛鳥を含めると50,000円以上でなければいけません。")
         return data
 
 class BookListSerializer(serializers.ListSerializer):
